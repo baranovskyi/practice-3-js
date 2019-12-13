@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Practice 3</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
+
+    <script defer src="build/bundle.js"></script>
+
+    <style>
+        tr.table-row-even {
+            background-color: #EEE;
+        }
+
+        ul {
+            padding-left: 0;
+            list-style: none;
+        }
+
+        .item-list ul li,
+        .shopping-cart ul li {
+            padding: 1em 0;
+        }
+
+        .item-list ul li + li,
+        .shopping-cart ul li + li {
+            border-top: 1px solid lightgrey;
+        }
+
+        .item-list ul li {
+            display: flex;
+            align-items: center;
+        }
+
+        .item-list ul li .picture {
+            flex: 20% 0 0;
+            padding-right: 1em;
+        }
+
+        .item-list ul li .picture img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .item-list .price {
+            display: inline-block;
+            padding: 0 1em;
+            font-size: 1.1em;
+            font-weight: bold;
+            color: darkgreen;
+        }
+
+        .shopping-cart {
+            padding-top: 1em;
+        }
+
+        .shopping-cart .item-info-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .shopping-cart-total {
+            margin-top: 2em;
+            padding-top: .5em;
+            border-top: 2px solid lightgrey;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Практическая работа 3</h2>
+    </div>
+
+    <div class="container">
+        <ul class="nav nav-tabs" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" data-toggle="tab" href="#task3" role="tab">Filterable Table</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#task4" role="tab">Shopping Cart</a>
+            </li>
+        </ul>
+
+        <div class="tab-content">
+            <div class="tab-pane active" id="task3" role="tabpanel">
+                <table class="table" id="table-task-3">
+                    <thead class="thead-default">
+                        <tr>
+                            <th>#</th>
+                            <th>Album</th>
+                            <th>Performer</th>
+                            <th>Genre</th>
+                            <th>Year</th>
+                            <th>Link</th>
+                        </tr>
+                        <tr>
+                            <th></th>
+                            <th><input type="text" data-field="album" /></th>
+                            <th><input type="text" data-field="performer" /></th>
+                            <th><input type="text" data-field="genre" /></th>
+                            <th><input type="text" data-field="year" /></th>
+                            <th><button>Filter!</button></th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+            <div class="tab-pane" id="task4" role="tabpanel">
+                <div class="row">
+                    <div class="col-8 item-list"></div>
+                    <div class="col-4 shopping-cart">
+                        <h2>Your Cart</h2>
+
+                        <p class="empty-cart-message">Your cart is empty. Buy something!</p>
+                        <ul class="shopping-cart-list"></ul>
+
+                        <div class="shopping-cart-total">
+                            Total: $<span class="total">0</span>
+                            <button class="btn btn-outline-danger btn-sm float-right remove-all d-none">Remove All!</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
